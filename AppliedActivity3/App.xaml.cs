@@ -1,4 +1,6 @@
-﻿namespace AppliedActivity3;
+﻿using AppliedActivity3.Services;
+
+namespace AppliedActivity3;
 
 #if WINDOWS
 using Microsoft.UI;
@@ -28,6 +30,8 @@ public partial class App : Application
             appWindow.Resize(new SizeInt32(WindowWidth, WindowHeight));
             #endif
         });
+
+        DependencyService.Register<IDataStore>();
 
         MainPage = new AppShell();
 	}
