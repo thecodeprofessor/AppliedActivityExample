@@ -63,13 +63,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\" />
 	  <Folder Include="Services\" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\CoursePage.xaml.cs">
+	    <DependentUpon>CoursePage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\CoursesPage.xaml.cs">
 	    <DependentUpon>CoursesPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\StudentPage.xaml.cs">
+	    <DependentUpon>StudentPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\StudentsPage.xaml.cs">
 	    <DependentUpon>StudentsPage.xaml</DependentUpon>
@@ -77,7 +82,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\CoursePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\CoursesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\StudentPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\StudentsPage.xaml">
