@@ -15,23 +15,45 @@
             Command="{Binding PageAppearingCommand}" />
     </ContentPage.Behaviors>
 
-    <CollectionView Grid.Row="0"
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <CollectionView Grid.Row="0"
                 ItemsSource="{Binding Courses}"
                 SelectionMode="Single"
                 SelectionChangedCommand="{Binding SelectCommand}"
                 SelectionChangedCommandParameter="{Binding
                 Source={RelativeSource Self},
                 Path=SelectedItem}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="viewmodels:CourseViewModel">
-                <HorizontalStackLayout Padding="10">
-                    <VerticalStackLayout VerticalOptions="Center">
-                        <Label Text="{Binding Code}"></Label>
-                        <Label Text="{Binding CRN}"></Label>
-                        <Label Text="{Binding Name}"></Label>
-                    </VerticalStackLayout>
-                </HorizontalStackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="viewmodels:CourseViewModel">
+                    <HorizontalStackLayout Padding="10">
+                        <VerticalStackLayout VerticalOptions="Center">
+                            <Label Text="{Binding Code}"></Label>
+                            <Label Text="{Binding CRN}"></Label>
+                            <Label Text="{Binding Name}"></Label>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Grid.Row="0"
+                    Text="+"
+                    HorizontalOptions="End"
+                    VerticalOptions="End"
+                    Margin="0,0,30,30"
+                    Command="{Binding AddCommand}"
+                    FontSize="Large"
+                    BackgroundColor="DodgerBlue"
+                    TextColor="White"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    WidthRequest="50" 
+                    ZIndex="100"/>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
