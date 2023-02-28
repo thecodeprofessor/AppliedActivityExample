@@ -31,7 +31,7 @@ public partial class App : Application
             #endif
         });
 
-        DependencyService.Register<IDataStore>();
+        DependencyService.Register<DataStoreSqlite>();
 
         MainPage = new AppShell();
 	}
