@@ -14,5 +14,68 @@
             EventName="Appearing"
             Command="{Binding PageAppearingCommand}" />
     </ContentPage.Behaviors>
+
+    <ContentPage.Content>
+        <VerticalStackLayout Spacing="10" Margin="5">
+
+            <Grid ColumnSpacing="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label  Text="Student Number:" Grid.Column="0"
+                        VerticalOptions="Center"
+                        />
+
+                <Entry  x:Name="Number" Grid.Column="1"
+                        VerticalOptions="Center"
+                        Placeholder="Enter a student number name."
+                        Text="{Binding Number}" />
+            </Grid>
+
+            <Grid ColumnSpacing="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label  Text="First Name:" Grid.Column="0"
+                        VerticalOptions="Center"
+                        />
+
+                <Entry  x:Name="FirstName" Grid.Column="1"
+                        VerticalOptions="Center"
+                        Placeholder="Enter a first name."
+                        Text="{Binding FirstName}" />
+            </Grid>
+            
+            <Grid ColumnSpacing="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label  Text="Last Name:" Grid.Column="0"
+                        VerticalOptions="Center"
+                        />
+
+                <Entry  x:Name="LastName" Grid.Column="1"
+                        VerticalOptions="Center"
+                        Placeholder="Enter a last name."
+                        Text="{Binding LastName}" />
+            </Grid>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
+                <Button Text="Save"
+                    Command="{Binding SaveCommand}"/>
+
+                <Button Grid.Column="1"
+                    Text="Delete"
+                    Command="{Binding DeleteCommand}"/>
+
+            </Grid>
+        </VerticalStackLayout>
+    </ContentPage.Content>
     
 </ContentPage>
