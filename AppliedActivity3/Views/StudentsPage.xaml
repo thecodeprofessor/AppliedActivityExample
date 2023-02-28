@@ -14,5 +14,26 @@
             EventName="Appearing"
             Command="{Binding PageAppearingCommand}" />
     </ContentPage.Behaviors>
-    
+
+    <ContentPage.Content>
+        <CollectionView
+                ItemsSource="{Binding Students}"
+                SelectionMode="Single"
+                SelectionChangedCommand="{Binding SelectCommand}"
+                SelectionChangedCommandParameter="{Binding
+                Source={RelativeSource Self},
+                Path=SelectedItem}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="viewmodels:StudentViewModel">
+                    <HorizontalStackLayout Padding="10">
+                        <VerticalStackLayout VerticalOptions="Center">
+                            <Label Text="{Binding Number}"></Label>
+                            <Label Text="{Binding FirstName}"></Label>
+                            <Label Text="{Binding LastName}"></Label>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
 </ContentPage>
