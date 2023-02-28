@@ -14,5 +14,68 @@
             EventName="Appearing"
             Command="{Binding PageAppearingCommand}" />
     </ContentPage.Behaviors>
+
+    <ContentPage.Content>
+        <VerticalStackLayout Spacing="10" Margin="5">
+
+            <Grid ColumnSpacing="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label  Text="Code:" Grid.Column="0"
+                        VerticalOptions="Center"
+                        />
+
+                <Entry  x:Name="Code" Grid.Column="1"
+                        VerticalOptions="Center"
+                        Placeholder="Enter a code."
+                        Text="{Binding Code}" />
+            </Grid>
+
+            <Grid ColumnSpacing="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label  Text="CRN:" Grid.Column="0"
+                        VerticalOptions="Center"
+                        />
+
+                <Entry  x:Name="CRN" Grid.Column="1"
+                        VerticalOptions="Center"
+                        Placeholder="Enter a CRN."
+                        Text="{Binding CRN}" />
+            </Grid>
+
+            <Grid ColumnSpacing="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label  Text="Name:" Grid.Column="0"
+                        VerticalOptions="Center"
+                        />
+
+                <Entry  x:Name="Name" Grid.Column="1"
+                        VerticalOptions="Center"
+                        Placeholder="Enter a name."
+                        Text="{Binding Name}" />
+            </Grid>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
+                <Button Text="Save"
+                    Command="{Binding SaveCommand}"/>
+
+                <Button Grid.Column="1"
+                    Text="Delete"
+                    Command="{Binding DeleteCommand}"/>
+
+            </Grid>
+        </VerticalStackLayout>
+    </ContentPage.Content>
     
 </ContentPage>
