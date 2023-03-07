@@ -60,16 +60,20 @@ namespace AppliedActivity3.ViewModels
             OnPropertyChanged(nameof(LastName));
         }
 
-
         public async Task CapturePhoto()
         {
-            //FileResult photo = await MediaPicker.PickPhotoAsync();
-            FileResult photo = await MediaPicker.CapturePhotoAsync();
+            FileResult photo = await MediaPicker.PickPhotoAsync();
+            //FileResult photo = await MediaPicker.CapturePhotoAsync();
 
             Stream stream = await photo.OpenReadAsync();
 
             MemoryStream memory = new MemoryStream();
             stream.CopyTo(memory);
+
+            string name = $"students/{_student.Id}/{Guid.NewGuid()}.png";
+
+            var blob = DependencyService.Get<IBlobStorage>();
+            await blob.UploadStreamAsync(name, memory);
 
             Photo = ImageSource.FromStream(() => new MemoryStream(memory.ToArray()));
         }

@@ -32,6 +32,7 @@ public partial class App : Application
         });
 
         DependencyService.Register<DataStoreSqlite>();
+        DependencyService.Register<BlobStorageAzure>();
 
         MainPage = new AppShell();
 	}
