@@ -66,6 +66,21 @@
                         Text="{Binding LastName}" />
             </Grid>
 
+
+            <Grid ColumnSpacing="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Text="Capture Photo"
+                    Command="{Binding CapturePhotoCommand}"/>
+
+                <Image Grid.Column="1" Source="{Binding Photo}" WidthRequest="100" HeightRequest="100"/>
+
+                
+            </Grid>
+
             <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
                 <Button Text="Save"
                     Command="{Binding SaveCommand}"/>

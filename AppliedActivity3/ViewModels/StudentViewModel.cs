@@ -19,12 +19,27 @@ namespace AppliedActivity3.ViewModels
         public IDataStore SqliteDataStore => DependencyService.Get<IDataStore>();
         public ICommand SaveCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
+        public ICommand CapturePhotoCommand { get; set; }
+
+        public ImageSource Photo
+        {
+            get { return photo; }
+            set
+            {
+                photo = value;
+                OnPropertyChanged(nameof(Photo));
+            }
+        }
+
+        private ImageSource photo;
+
 
         public StudentViewModel ()
         {
             _student = new Student();
             SaveCommand = new AsyncRelayCommand(Save);
             DeleteCommand = new AsyncRelayCommand(Delete);
+            CapturePhotoCommand = new AsyncRelayCommand(CapturePhoto);
         }
 
         public StudentViewModel(Student student)
@@ -43,6 +58,20 @@ namespace AppliedActivity3.ViewModels
             OnPropertyChanged(nameof(Number));
             OnPropertyChanged(nameof(FirstName));
             OnPropertyChanged(nameof(LastName));
+        }
+
+
+        public async Task CapturePhoto()
+        {
+            //FileResult photo = await MediaPicker.PickPhotoAsync();
+            FileResult photo = await MediaPicker.CapturePhotoAsync();
+
+            Stream stream = await photo.OpenReadAsync();
+
+            MemoryStream memory = new MemoryStream();
+            stream.CopyTo(memory);
+
+            Photo = ImageSource.FromStream(() => new MemoryStream(memory.ToArray()));
         }
 
         public async Task Save()

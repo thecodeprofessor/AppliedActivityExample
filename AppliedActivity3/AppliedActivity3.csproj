@@ -63,10 +63,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Services\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="Views\CoursePage.xaml.cs">
 	    <DependentUpon>CoursePage.xaml</DependentUpon>
 	  </Compile>
