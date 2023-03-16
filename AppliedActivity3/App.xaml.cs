@@ -32,7 +32,8 @@ public partial class App : Application
         });
 
         DependencyService.Register<DataStoreSqlite>();
-        DependencyService.Register<BlobStorageAzure>();
+        //DependencyService.Register<BlobStorageAzure>();
+        DependencyService.Register<BlobStorageFirebaseCloudStorage>();
 
         MainPage = new AppShell();
 	}
