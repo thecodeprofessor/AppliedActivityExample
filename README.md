@@ -1,4 +1,4 @@
-# AppliedActivity3
+# AppliedActivityExample
 
 See the following repo's readme for helpful links:
 https://github.com/thecodeprofessor/EmployeeApplication
